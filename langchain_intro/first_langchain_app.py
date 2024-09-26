@@ -1,8 +1,15 @@
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+information = """
+Elon Reeve Musk FRS is a businessman and investor known for his key roles in the space company SpaceX and the automotive company Tesla, Inc.
+"""
 
 if __name__ == "__main__":
     print("First LangChain App")
+    load_dotenv()
 
     summary_template = """
     given the information {information} about a person from I want to create:
@@ -15,5 +22,7 @@ if __name__ == "__main__":
     # temperature decides how creative the language model is
 
     chain = summary_prompt_template | llm
-    
+    res = chain.invoke(input={"information": information})
+
+    print(res)
 
