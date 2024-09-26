@@ -26,3 +26,5 @@ if __name__ == "__main__":
 
     print(res)
 
+# Output:
+# content='1. Elon Musk is a renowned businessman and investor, best known for his involvement in SpaceX and Tesla, Inc.\n\n2. Two interesting facts about Elon Musk are:\n   - He is also the founder of The Boring Company, which aims to reduce traffic congestion through underground tunnel systems.\n   - Musk has expressed interest in colonizing Mars and has plans to establish a human settlement on the planet.'
