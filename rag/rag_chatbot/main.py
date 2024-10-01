@@ -16,3 +16,11 @@ load_dotenv()
 # Load the model
 model = ChatOpenAI()
 
+# Load the documents = https://python.langchain.com/docs/get_started/introduction
+loader = WebBaseLoader("https://python.langchain.com/docs/get_started/introduction")
+documents = loader.load()
+
+# prompt templates
+template = "you are senior developer who answers {question}  based on your knowledge based on {context}"
+prompt = PromptTemplate(template=template, input_variables=["question", "context"])
+
