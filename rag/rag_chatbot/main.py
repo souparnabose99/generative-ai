@@ -75,3 +75,17 @@ def ask():
 
 if __name__ == "__main__":
     start()
+
+# MENU
+# ====
+# [1]- Ask a question
+# [2]- Exit
+# Enter your choice: 1
+# Q: what is langchain?
+# A: LangChain is a framework for developing applications powered by large language models (LLMs). It simplifies every stage of the LLM application lifecycle, including development,
+# productionization, and deployment. LangChain implements a standard interface for large language models and integrates with various providers. It consists of multiple open-source li
+# braries such as langchain-core, integration packages, langchain, langchain-community, and langgraph. These libraries provide abstractions for chat models, agents, retrieval strateg
+# ies, and orchestration frameworks for building production-ready applications with persistence and streaming capabilities. LangChain also offers tutorials, how-to guides, conceptual guides, integrations, and an API reference to help developers get started with building applications using the framework.
+#
+# -------------------------------------------------
+# Q:
