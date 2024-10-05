@@ -40,25 +40,36 @@ model = ChatOpenAI()
 
 def load_documents():
     """Load a file from path, split it into chunks, embed each chunk and load it into the vector store."""
-    pass
+    loader = TextLoader("./user-manual.txt")
+    raw_text = loader.load()
+    text_splitter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0)
+    return text_splitter.split_documents(raw_text)
 
 
 def load_embeddings(documents):
     """Create a vector store from a set of documents."""
-    pass
+    embeddings = OpenAIEmbeddings()
+    db = Chroma.from_documents(documents, embeddings)
+    return db.as_retriever()
 
 
 def generate_response(retriever, query):
     """Generate a response using the retriever and the query."""
-    # Create a prompt template using a template from the config module and input variables
-    # representing the context and question.
-    # create the prompt
-    pass
+    chain = (
+            {"context": retriever, "question": RunnablePassthrough()}
+            | chat_prompt_template
+            | model
+            | StrOutputParser()
+    )
+    return chain.invoke(query)
 
 
 def query(query_str):
     """Query the model and return the response."""
-    pass
+    documents = load_documents()
+    retriever = load_embeddings(documents)
+    response = generate_response(retriever, query_str)
+    return response
 
 
 def start():
