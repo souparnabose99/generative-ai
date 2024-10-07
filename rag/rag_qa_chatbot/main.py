@@ -53,7 +53,7 @@ def load_embeddings(documents):
     return db.as_retriever()
 
 
-def generate_response(retriever, query):
+def generate_response(retriever, query_str):
     """Generate a response using the retriever and the query."""
     chain = (
             {"context": retriever, "question": RunnablePassthrough()}
@@ -61,7 +61,7 @@ def generate_response(retriever, query):
             | model
             | StrOutputParser()
     )
-    return chain.invoke(query)
+    return chain.invoke(query_str)
 
 
 def query(query_str):
@@ -103,8 +103,8 @@ def ask():
 
             response = query(user_input)
 
-            print(Fore.BLUE + f"A: " + response + Fore.RESET)
-            print(Fore.WHITE + "\n-------------------------------------------------")
+            print(Fore.WHITE + f"A: " + response + Fore.RESET)
+            print(Fore.RED + "\n-------------------------------------------------")
 
 
 if __name__ == "__main__":
