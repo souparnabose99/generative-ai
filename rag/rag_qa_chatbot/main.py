@@ -103,8 +103,8 @@ def ask():
 
             response = query(user_input)
 
-            print(Fore.WHITE + f"A: " + response + Fore.RESET)
-            print(Fore.RED + "\n-------------------------------------------------")
+            print(Fore.BLUE + f"A: " + response + Fore.RESET)
+            print(Fore.WHITE + "\n-------------------------------------------------")
 
 
 if __name__ == "__main__":
