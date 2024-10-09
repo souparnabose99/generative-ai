@@ -110,6 +110,8 @@ def ask():
 if __name__ == "__main__":
     start()
 
+# Sample Output:-
+
 # python main.py
 #
 # Type your question and press ENTER. Type 'x' to go back to the MAIN menu.
@@ -142,4 +144,3 @@ if __name__ == "__main__":
 # [2]- Exit
 # Enter your choice: 2
 # Goodbye!
-
