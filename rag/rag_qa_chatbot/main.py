@@ -109,3 +109,36 @@ def ask():
 
 if __name__ == "__main__":
     start()
+
+# python main.py
+#
+# Type your question and press ENTER. Type 'x' to go back to the MAIN menu.
+#
+# MENU
+# ====
+# [1]- Ask a question
+# [2]- Exit
+# Enter your choice: 1
+# Q: I am getting error code E3 while running the washing machine
+# Number of requested results 4 is greater than number of elements in index 1, updating n_results = 1
+# A: Error code E3 on the Washing Machine XYZ indicates a drum rotation problem. To troubleshoot this issue, please follow these steps:
+#
+# 1. Check the laundry load: Make sure that the laundry inside the drum is evenly distributed. An unbalanced load can cause the drum rotation problem. Try rearranging the laundry to ensure balanced distribution.
+#
+# 2. Restart the washing machine: Stop the current cycle and restart the machine. Sometimes, a simple restart can resolve the error code E3.
+#
+# 3. If the issue persists after checking the laundry load and restarting the machine, please contact our after-sales service for further assistance. You can reach them at the phone number provided in the user manual: +33 880 880 887.
+#
+# If you need any additional help or have further questions, feel free to contact our customer service team at serviceclient@machinelaverxyz.com or visit our website at www.machinelaverxyz.com. Thank you for choosing the Washing Machine XYZ.
+#
+# -------------------------------------------------
+# Q: x
+#
+# Type your question and press ENTER. Type 'x' to go back to the MAIN menu.
+#
+# MENU
+# ====
+# [1]- Ask a question
+# [2]- Exit
+# Enter your choice: 2
+# Goodbye!
