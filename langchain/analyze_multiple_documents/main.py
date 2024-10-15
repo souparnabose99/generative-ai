@@ -1,7 +1,7 @@
 import os
 from pydantic import BaseModel, Field
 from langchain.chat_models import ChatOpenAI
-from langchain.agents import Tool
+from langchain.agents import Tool, initialize_agent, AgentType
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
@@ -51,4 +51,18 @@ for file in files:
         )
     )
 
+llm = ChatOpenAI(
+    temperature=0,
+    model="gpt-3.5-turbo-0613",
+)
+agent = initialize_agent(
+    agent=AgentType.OPENAI_FUNCTIONS,
+    tools=tools,
+    llm=llm,
+    verbose=True,
+)
 
+agent({"input": "Based on these SEC filing documents, identify \
+        which of these three companies - Alphabet, IBM, and Cisco \
+        has the greatest short-term debt levels and which has the \
+        highest research and development costs."})
