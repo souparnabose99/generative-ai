@@ -66,3 +66,6 @@ agent({"input": "Based on these SEC filing documents, identify \
         which of these three companies - Alphabet, IBM, and Cisco \
         has the greatest short-term debt levels and which has the \
         highest research and development costs."})
+
+# Output
+# ‘output’: ‘Based on the SEC filing documents:\n\n- The company with the greatest short-term debt levels is IBM, with a short-term debt level of $4,760 million.\n- The company with the highest research and development costs is Alphabet, with research and development costs of $11,468 million.’
