@@ -34,3 +34,21 @@ files = [
             Annual_Report_2022.pdf",
     },
     ]
+
+for file in files:
+    loader = PyPDFLoader(file["path"])
+    pages = loader.load_and_split()
+    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+    docs = text_splitter.split_documents(pages)
+    embeddings = OpenAIEmbeddings()
+    retriever = FAISS.from_documents(docs, embeddings).as_retriever()
+    # Wrap retrievers in a Tool
+    tools.append(
+        Tool(
+            args_schema=DocumentInput,
+            name=file["name"],
+            func=RetrievalQA.from_chain_type(llm=llm, retriever=retriever),
+        )
+    )
+
+
