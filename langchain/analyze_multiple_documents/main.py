@@ -20,18 +20,15 @@ tools = []
 files = [
     {
         "name": "alphabet-earnings",
-        "path": "https://abc.xyz/investor/static/pdf/2023Q1\
-        _alphabet_earnings_release.pdf",
+        "path": "https://abc.xyz/investor/static/pdf/2023Q1_alphabet_earnings_release.pdf",
     },
     {
         "name": "Cisco-earnings",
-        "path": "https://d18rn0p25nwr6d.cloudfront.net/CIK-00\
-            00858877/5b3c172d-f7a3-4ecb-b141-03ff7af7e068.pdf",
+        "path": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0000858877/5b3c172d-f7a3-4ecb-b141-03ff7af7e068.pdf",
     },
     {
         "name": "IBM-earnings",
-        "path": "https://www.ibm.com/investor/att/pdf/IBM_\
-            Annual_Report_2022.pdf",
+        "path": "https://www.ibm.com/investor/att/pdf/IBM_Annual_Report_2022.pdf",
     },
     ]
 
