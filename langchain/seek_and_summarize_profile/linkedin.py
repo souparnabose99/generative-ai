@@ -16,10 +16,13 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool=False):
         api_endpoint = "https://nubela.co/proxycurl/api/v2/linkedin"
         header_dic = {"Authorization": f'Bearer {os.environ.get("PROXYCURL_API_KEY")}'}
         response = requests.get(api_endpoint, params={"url": linkedin_profile_url}, headers=header_dic, timeout=10)
-    return response
+
+    data = response.json()
+
+    return data
 
 
 if __name__ == "__main__":
-    scrape_linkedin_profile(linkedin_profile_url= "", mock=True)
-    
+    print(scrape_linkedin_profile(linkedin_profile_url="", mock=True))
+
 
