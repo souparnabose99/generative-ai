@@ -21,3 +21,9 @@ if __name__ == "__main__":
     linked_data = scrape_linkedin_profile("", True)
     res = chain.invoke(input={"information": linked_data})
     print("LLM Output :\n", res)
+
+# Output:
+# ---Profile Summarizer---
+#
+# LLM Output :
+#  content='1. Short Summary:\nEden Marco is a Customer Engineer at Google, based in Tel Aviv, Israel. With a background in backend development and a successful career as a best-selling Udemy instructor, Eden brings a wealth of technical expertise and teaching experience to his role at Google.\n\n2. Interesting Facts:\n- Eden has produced and published two best-selling courses on the Udemy platform, with over 9,000 enrolled students, 800+ ratings, and a solid 4.7-star rating.\n- Prior to his current role, Eden served as a Captain in the Israel Defense Forces, showcasing his leadership skills and dedication to serving his country.'
