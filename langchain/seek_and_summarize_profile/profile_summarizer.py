@@ -6,7 +6,7 @@ from linkedin import scrape_linkedin_profile
 
 if __name__ == "__main__":
     load_dotenv()
-    print("Profile Summarizer")
+    print("---Profile Summarizer---\n")
 
     summary_template = """
     given the LinkedIn information {information} about a person, I want you to create:
@@ -20,4 +20,4 @@ if __name__ == "__main__":
     chain = summary_prompt_template | llm
     linked_data = scrape_linkedin_profile("", True)
     res = chain.invoke(input={"information": linked_data})
-    print(res)
+    print("LLM Output :\n", res)
