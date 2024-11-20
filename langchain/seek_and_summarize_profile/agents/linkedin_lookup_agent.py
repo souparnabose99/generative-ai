@@ -39,6 +39,12 @@ def lookup(name: str) -> str:
 
     react_prompt = hub.pull("hwchase17/react")
     agent = create_react_agent(llm=llm, tools=tools_for_agent, prompt=react_prompt)
+    agent_executor = AgentExecutor(agent=agent, tools=tools_for_agent, verbose=True)
 
-    return "https://www.linked.com/in/eden-marco/"
+    result = agent_executor.invoke(
+        input={"input": prompt_template.format_prompt(name_of_person=name)}
+    )
+
+    linkedin_profile_url = result["output"]
+    return linkedin_profile_url
 
