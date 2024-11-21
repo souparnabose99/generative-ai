@@ -7,21 +7,24 @@ from agents.linkedin_lookup_agent import lookup as linkedin_lookup_agent
 
 
 def summarize_profile(name: str) -> str:
+    linkedin_url = linkedin_lookup_agent(name=name)
+    linkedin_data = scrape_linkedin_profile(linkedin_profile_url=linkedin_url)
+
+    summary_template = """
+        given the LinkedIn information {information} about a person, I want you to create:
+        1. A short summary
+        2. 2 interesting facts about them
+        """
+
+    summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_template)
+    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
+
     pass
 
 
 if __name__ == "__main__":
     load_dotenv()
     print("---Profile Summarizer---\n")
-
-    summary_template = """
-    given the LinkedIn information {information} about a person, I want you to create:
-    1. A short summary
-    2. 2 interesting facts about them
-    """
-
-    summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_template)
-    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
     chain = summary_prompt_template | llm
     linked_data = scrape_linkedin_profile("", True)
