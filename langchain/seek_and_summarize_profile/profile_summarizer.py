@@ -3,6 +3,12 @@ from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from dotenv import load_dotenv
 from linkedin import scrape_linkedin_profile
+from agents.linkedin_lookup_agent import lookup as linkedin_lookup_agent
+
+
+def summarize_profile(name: str) -> str:
+    pass
+
 
 if __name__ == "__main__":
     load_dotenv()
