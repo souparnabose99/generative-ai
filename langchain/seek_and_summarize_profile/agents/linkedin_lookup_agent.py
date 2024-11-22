@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from langchain import hub
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.tools import Tool
@@ -28,7 +29,16 @@ def lookup(name: str) -> str:
         input_variables=["name_of_a_person"]
     )
 
-    
+    tools_for_agent = [
+        Tool(
+            name="Crawl Google 4 Linkedin profile page",
+            func="?",
+            description="useful for when you need to get the Linkedin Page Url"
+        )
+    ]
+
+    react_prompt = hub.pull("hwchase17/react")
+    agent = create_react_agent(llm=llm, tools=tools_for_agent, prompt=react_prompt)
 
     return "https://www.linked.com/in/eden-marco/"
 
