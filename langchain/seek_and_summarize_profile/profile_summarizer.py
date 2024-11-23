@@ -19,17 +19,17 @@ def summarize_profile(name: str) -> str:
     summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_template)
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
+    chain = summary_prompt_template | llm
+    linked_data = scrape_linkedin_profile("", True)
+    res = chain.invoke(input={"information": linked_data})
+    print("LLM Output :\n", res)
+
     pass
 
 
 if __name__ == "__main__":
     load_dotenv()
     print("---Profile Summarizer---\n")
-
-    chain = summary_prompt_template | llm
-    linked_data = scrape_linkedin_profile("", True)
-    res = chain.invoke(input={"information": linked_data})
-    print("LLM Output :\n", res)
 
 # Output:
 # ---Profile Summarizer---
