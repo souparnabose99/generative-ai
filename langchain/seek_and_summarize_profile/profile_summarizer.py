@@ -9,7 +9,7 @@ from output_parser import summary_parser
 
 def summarize_profile(name: str) -> str:
     linkedin_url = linkedin_lookup_agent(name=name)
-    linkedin_data = scrape_linkedin_profile(linkedin_profile_url=linkedin_url)
+    linkedin_data = scrape_linkedin_profile(linkedin_profile_url=linkedin_url, mock=True)
 
     summary_template = """
         given the LinkedIn information {information} about a person, I want you to create:
