@@ -4,7 +4,7 @@ from langchain.chains import LLMChain
 from dotenv import load_dotenv
 from linkedin import scrape_linkedin_profile
 from agents.linkedin_lookup_agent import lookup as linkedin_lookup_agent
-from agents.output_parser import summary_parser
+from output_parser import summary_parser
 
 
 def summarize_profile(name: str) -> str:
