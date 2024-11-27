@@ -25,7 +25,7 @@ def summarize_profile(name: str) -> str:
         partial_variables={"format_instructions": summary_parser.get_format_instructions()})
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
-    chain = summary_prompt_template | llm
+    chain = summary_prompt_template | llm | summary_parser
     # linked_data = scrape_linkedin_profile("", True)
     res = chain.invoke(input={"information": linkedin_data})
     print("LLM Output :\n", res)
