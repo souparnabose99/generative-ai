@@ -61,7 +61,7 @@
                         document.getElementById("profile-pic").src = data.picture_url;
                         document.getElementById("summary").textContent = data.summary_and_facts.summary;
                         createHtmlList(document.getElementById("facts"), data.summary_and_facts.facts);
-                        createHtmlList(document.getElementById("ice-breakers"), data.ice_breakers.profile-information);
+                        createHtmlList(document.getElementById("profile-information"), data.ice_breakers.profile-information);
                         createHtmlList(document.getElementById("topics-of-interest"), data.interests.topics_of_interest);
 
                         spinner.style.display = "none";
