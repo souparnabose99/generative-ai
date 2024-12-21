@@ -7,6 +7,7 @@ load_dotenv()
 @tool
 def get_text_length(text:str) -> int:
     """Returns the length of a text by characters"""
+    text = text.strip("'\n").strip('"')
     return len(text)
 
 
