@@ -1,5 +1,7 @@
 from dotenv import load_dotenv
 from langchain.agents import tool
+from langchain_core.prompts import PromptTemplate
+from langchain_core.tools import render_text_description
 
 load_dotenv()
 
@@ -37,4 +39,10 @@ if __name__ == "__main__":
     Question: {input}
     Thought:{agent_scratchpad}
     """
-    print(get_text_length.invoke(input={"text": "abdegj"}))
+    # print(get_text_length.invoke(input={"text": "abdegj"}))
+
+    prompt = (PromptTemplate.from_template(template=template)
+              .partial(tools=render_text_description(tools), tool_names=", ".join([t.name for t in tools])))
+
+    
+
