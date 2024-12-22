@@ -46,4 +46,8 @@ if __name__ == "__main__":
               .partial(tools=render_text_description(tools), tool_names=", ".join([t.name for t in tools])))
 
     llm = ChatOpenAI(temperature=0, stop=["\nObservation"])
+    agent = {"input": lambda x: x["input"]} | prompt | llm
+
+    result = agent.invoke({"input": "What is the length of 'Croatia' in characters?'"})
+    print(result)
 
