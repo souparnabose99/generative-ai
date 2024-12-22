@@ -1,5 +1,8 @@
+from typing import Union, List
 from dotenv import load_dotenv
 from langchain.agents import tool
+from langchain.agents.output_parsers import ReActSingleInputOutputParser
+from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.prompts import PromptTemplate
 from langchain_core.tools import render_text_description
 from langchain_openai import ChatOpenAI
@@ -46,7 +49,14 @@ if __name__ == "__main__":
               .partial(tools=render_text_description(tools), tool_names=", ".join([t.name for t in tools])))
 
     llm = ChatOpenAI(temperature=0, stop=["\nObservation"])
-    agent = {"input": lambda x: x["input"]} | prompt | llm
+    agent = {"input": lambda x: x["input"]} | prompt | llm | ReActSingleInputOutputParser()
+
+    agent_step: Union[AgentAction, AgentFinish] = agent.invoke(
+        {
+            "input": "What is the length of 'Croatia' in characters?",
+        }
+    )
+    print(agent_step)
 
     result = agent.invoke({"input": "What is the length of 'Croatia' in characters?'"})
     print(result)
