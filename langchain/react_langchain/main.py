@@ -8,7 +8,7 @@ load_dotenv()
 
 
 @tool
-def get_text_length(text:str) -> int:
+def get_text_length(text: str) -> int:
     """Returns the length of a text by characters"""
     text = text.strip("'\n").strip('"')
     return len(text)
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     Begin!
     
     Question: {input}
-    Thought:{agent_scratchpad}
+    Thought:
     """
     # print(get_text_length.invoke(input={"text": "abdegj"}))
 
