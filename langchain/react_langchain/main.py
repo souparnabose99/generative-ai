@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from langchain.agents import tool
 from langchain_core.prompts import PromptTemplate
 from langchain_core.tools import render_text_description
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
@@ -44,5 +45,5 @@ if __name__ == "__main__":
     prompt = (PromptTemplate.from_template(template=template)
               .partial(tools=render_text_description(tools), tool_names=", ".join([t.name for t in tools])))
 
-    
+    llm = ChatOpenAI(temperature=0, stop=["\nObservation"])
 
