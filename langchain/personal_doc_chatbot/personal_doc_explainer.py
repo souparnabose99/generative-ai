@@ -4,3 +4,7 @@ import streamlit as st
 st.header("Personal Doc Analyzer Chatbot")
 
 
+with st.sidebar:
+    st.title("Your Documents")
+    file = st.file_uploader("Upload a pdf & ask your questions", type="pdf")
+
