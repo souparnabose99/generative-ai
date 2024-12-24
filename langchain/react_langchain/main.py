@@ -4,7 +4,7 @@ from langchain.agents import tool
 from langchain.agents.output_parsers import ReActSingleInputOutputParser
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.prompts import PromptTemplate
-from langchain_core.tools import render_text_description
+from langchain_core.tools import render_text_description, Tool
 from langchain_openai import ChatOpenAI
 
 load_dotenv()
@@ -15,6 +15,13 @@ def get_text_length(text: str) -> int:
     """Returns the length of a text by characters"""
     text = text.strip("'\n").strip('"')
     return len(text)
+
+
+def find_tool_by_name(tools_list: List[Tool], tool_name_selected: str) -> Tool:
+    for tool in tools:
+        if tool.name == tool_name:
+            return tool
+    raise ValueError(f"Tool wtih name {tool_name} not found")
 
 
 if __name__ == "__main__":
