@@ -13,7 +13,7 @@ load_dotenv()
 @tool
 def get_text_length(text: str) -> int:
     """Returns the length of a text by characters"""
-    text = text.strip("'\n").strip('"')
+    text = text.strip("'\n").strip('"') # Stripping away non alphabetic characters just in case
     return len(text)
 
 
