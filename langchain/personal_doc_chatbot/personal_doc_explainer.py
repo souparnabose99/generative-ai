@@ -28,7 +28,7 @@ if file is not None:
         # st.write(text)
 
 
-# Perform data chunking
+    # Perform data chunking
     text_splitter = RecursiveCharacterTextSplitter(
         separators=["\n"],
         chunk_size=1000,
@@ -38,10 +38,11 @@ if file is not None:
     chunks = text_splitter.split_text(text)
     st.write(chunks)
 
-# Creating Embeddings
-embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+    # Creating Embeddings
+    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+
+    # Creating FAISS Vector store
+    vector_store = FAISS.from_texts(chunks, embeddings)
 
 
-# Creating FAISS Vector store
-vector_store = FAISS.from_texts(chunks, embeddings)
 
