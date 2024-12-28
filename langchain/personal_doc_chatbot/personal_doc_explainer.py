@@ -1,6 +1,11 @@
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.chains.question_answering import load_qa_chain
+from langchain.chat_models import ChatOpenAI
+from dotenv import load_dotenv
 
 # Upload pdf files
 st.header("Personal Doc Analyzer Chatbot")
@@ -18,6 +23,7 @@ if file is not None:
         text += page.extract_text()
         # st.write(text)
 
+
 # Perform data chunking
     text_splitter = RecursiveCharacterTextSplitter(
         separators=["\n"],
@@ -27,4 +33,11 @@ if file is not None:
     )
     chunks = text_splitter.split_text(text)
     st.write(chunks)
+
+# generating embedding
+embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+
+
+# creating vector store - FAISS
+vector_store = FAISS.from_texts(chunks, embeddings)
 
