@@ -1,5 +1,3 @@
-import os
-
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -7,7 +5,6 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain.chat_models import ChatOpenAI
-os.environ["OPENAI_API_KEY"] = "xxxx"
 
 OPENAI_API_KEY = "xxxxx"
 
@@ -27,7 +24,6 @@ if file is not None:
         text += page.extract_text()
         # st.write(text)
 
-
     # Perform data chunking
     text_splitter = RecursiveCharacterTextSplitter(
         separators=["\n"],
@@ -44,5 +40,20 @@ if file is not None:
     # Creating FAISS Vector store
     vector_store = FAISS.from_texts(chunks, embeddings)
 
+    # User input question
+    user_question = st.text_input("Ask your question about Indian Constitution")
+
+    # Perform Similarity search
+    if user_question:
+        match = vector_store.similarity_search(user_question)
+        # st.write(match)
+
+        # Define LLM
+        llm = ChatOpenAI(
+            openai_api_key=OPENAI_API_KEY,
+            temperature=0,
+            max_tokens=1000,
+            model_name="gpt-3.5-turbo"
+        )
 
 
