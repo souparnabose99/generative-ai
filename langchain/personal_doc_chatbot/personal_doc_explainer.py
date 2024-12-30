@@ -56,4 +56,10 @@ if file is not None:
             model_name="gpt-3.5-turbo"
         )
 
+        # Query output
+        # Chain -> take question, get relevant document, pass it to LLM, generate output
+        chain = load_qa_chain(llm, chain_type="stuff")
+        response = chain.run(input_documents=match, question=user_question)
+        st.write(response)
+
 
