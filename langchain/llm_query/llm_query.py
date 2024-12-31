@@ -1,5 +1,5 @@
 from langchain.llms import OpenAI
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "xxxx"
 
 
 if __name__ == "__main__":
