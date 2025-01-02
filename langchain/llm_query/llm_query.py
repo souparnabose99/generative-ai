@@ -1,10 +1,10 @@
-from langchain.llms import OpenAI
+from langchain_openai import OpenAI
 OPENAI_API_KEY = ""
 
 
 if __name__ == "__main__":
     llm = OpenAI(openai_api_key=OPENAI_API_KEY)
-    res = llm("Share useful information about our solar system")
+    res = llm.invoke("Share useful information about our solar system")
     print(res)
     print("----------------")
     gen_output = llm.generate(["A fact about Saturn", "Why Jupiter is so scary and big"])
