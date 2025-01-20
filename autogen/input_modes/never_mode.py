@@ -1,5 +1,5 @@
 import os
-from autogen import ConversableAgent, UserProxyAgent
+from autogen import ConversableAgent
 from dotenv import load_dotenv
 
 load_dotenv()
