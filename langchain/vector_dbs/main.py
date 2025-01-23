@@ -19,6 +19,12 @@ def perform_rag_steps():
 
     print(result.content)
 
+    vector_store = PineconeVectorStore(
+        index_name=os.environ["INDEX_NAME"], embedding=embeddings
+    )
+
+    retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
+
 
 if __name__ == "__main__":
     perform_rag_steps()
