@@ -22,3 +22,4 @@ if __name__ == '__main__':
     embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPENAI_API_KEY"))
     print("Data Ingestion started...")
     PineconeVectorStore.from_documents(texts, embeddings, index_name=os.environ["INDEX_NAME"])
+    print("Embedding creation completed")
