@@ -13,7 +13,7 @@ def perform_rag_steps():
     embeddings = OpenAIEmbeddings()
     llm = ChatOpenAI()
 
-    query = "What is LangSmith in Machine Learning?"
+    query = "What is Pinecone in Machine Learning?"
     chain = PromptTemplate.from_template(template=query) | llm
     result = chain.invoke(input={})
 
