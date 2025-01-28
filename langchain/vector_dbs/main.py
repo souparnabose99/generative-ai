@@ -30,4 +30,4 @@ if __name__ == "__main__":
     perform_rag_steps()
 
 
-# LangSmith is a language model introduced by OpenAI that is specifically trained on a large amount of text data to understand and generate human-like text. It is based on the GPT-3 model and is capable of performing a wide range of natural language processing tasks, such as text generation, translation, summarization, and more. LangSmith has been used in various applications, including chatbots, content generation, and language understanding tasks.
+# Pinecone is a cloud-based vector database that is optimized for fast similarity search. It is designed specifically for machine learning applications that require high-performance search capabilities, such as recommendation systems, image search, and natural language processing. Pinecone allows users to store and query high-dimensional vectors efficiently, making it ideal for tasks that involve finding similar items in large datasets. It provides a simple API for adding, searching, and retrieving vectors, making it easy to integrate into machine learning pipelines.
