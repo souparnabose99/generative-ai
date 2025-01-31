@@ -3,8 +3,11 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_pinecone import PineconeVectorStore
+from langchain_core.runnables import RunnablePassthrough
 
 
+def format_docs():
+    pass
 
 def perform_rag_steps():
     load_dotenv()
@@ -35,7 +38,7 @@ def perform_rag_steps():
     custom_rag_prompt = PromptTemplate.from_template(template)
 
     rag_chain = (
-        {"context": vector_store.as_retriever() | format_docs, "question": RunnableThrough}
+        {"context": vector_store.as_retriever() | format_docs, "question": RunnablePassthrough}
         | custom_rag_prompt
         | llm
     )
