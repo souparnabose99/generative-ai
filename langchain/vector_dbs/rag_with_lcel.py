@@ -38,10 +38,13 @@ def perform_rag_steps():
     custom_rag_prompt = PromptTemplate.from_template(template)
 
     rag_chain = (
-        {"context": vector_store.as_retriever() | format_docs, "question": RunnablePassthrough}
+        {"context": vector_store.as_retriever() | format_docs, "question": RunnablePassthrough()}
         | custom_rag_prompt
         | llm
     )
+
+    result = rag_chain.invoke(query)
+    print(result)
 
 
 if __name__ == "__main__":
