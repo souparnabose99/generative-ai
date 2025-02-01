@@ -37,8 +37,10 @@ def perform_rag_steps():
 
     custom_rag_prompt = PromptTemplate.from_template(template)
 
+    context = format_docs(vector_store.as_retriever())
+
     rag_chain = (
-        {"context": vector_store.as_retriever() | format_docs, "question": RunnablePassthrough()}
+        {"context": lambda x: context, "question": RunnablePassthrough()}
         | custom_rag_prompt
         | llm
     )
