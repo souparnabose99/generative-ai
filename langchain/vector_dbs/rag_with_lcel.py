@@ -6,8 +6,8 @@ from langchain_pinecone import PineconeVectorStore
 from langchain_core.runnables import RunnablePassthrough
 
 
-def format_docs():
-    pass
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
 
 def perform_rag_steps():
     load_dotenv()
