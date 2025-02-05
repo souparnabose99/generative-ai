@@ -8,13 +8,14 @@ class Person(BaseModel):
     city: str
     marital_status: bool
 
+
 # Optional variables
 class Employee(BaseModel):
     id: int
     name: str
     department: str
-    salary: Optional[float] = None #
-    is_active: Optional[bool]
+    salary: Optional[float] = None # Optional variable with default value
+    is_active: Optional[bool] = False # Optional variable with default value
 
 
 if __name__ == "__main__":
