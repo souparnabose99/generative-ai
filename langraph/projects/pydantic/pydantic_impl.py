@@ -10,6 +10,12 @@ class Person(BaseModel):
 
 # Optional variables
 class Employee(BaseModel):
+    id: int
+    name: str
+    department: str
+    salary: Optional[float] = None #
+    is_active: Optional[bool]
+
 
 if __name__ == "__main__":
     person = Person(name="abc", age=12, city="xyz", marital_status=False)
