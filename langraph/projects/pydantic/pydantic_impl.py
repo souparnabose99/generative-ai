@@ -21,3 +21,6 @@ class Employee(BaseModel):
 if __name__ == "__main__":
     person = Person(name="abc", age=12, city="xyz", marital_status=False)
     print(person)
+
+    employee = Employee(id=1, name="abc", department="xyz")
+    print(employee)
