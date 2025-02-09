@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional, List
+import traceback
 
 
 class Person(BaseModel):
@@ -33,4 +34,10 @@ if __name__ == "__main__":
 
     class_room = ClassRoom(room_number=1, students=["1", "2"], capacity=10)
     print(class_room)
+
+    try:
+        invalid_val = ClassRoom(room_number=1, students=["1", 2], capacity=10)
+    except ValueError as e:
+        print(e)
+        print(traceback.print_exc())
 
